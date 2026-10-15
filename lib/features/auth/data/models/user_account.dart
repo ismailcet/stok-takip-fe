@@ -1,19 +1,6 @@
-enum UserRole { usta, cirak }
+import '../../../../core/models/user_role.dart';
 
-extension UserRoleX on UserRole {
-  static UserRole fromApi(String value) {
-    switch (value.toUpperCase()) {
-      case 'MASTER':
-        return UserRole.usta;
-      case 'APPRENTICE':
-        return UserRole.cirak;
-      default:
-        throw ArgumentError('Bilinmeyen rol: $value');
-    }
-  }
-
-  String get label => this == UserRole.usta ? 'Usta' : 'Çırak';
-}
+export '../../../../core/models/user_role.dart';
 
 class UserAccount {
   final int id;

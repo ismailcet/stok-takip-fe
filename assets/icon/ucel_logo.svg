@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1224 852" width="1224" height="852">
+<defs><linearGradient id="sh" x1="0" x2="1" y1="0" y2="0">
+<stop offset="0" stop-color="#c8102e"/><stop offset="0.5" stop-color="#7a1e12"/><stop offset="1" stop-color="#1f6b2a"/></linearGradient></defs>
+<!-- zemin gölgesi -->
+<path d="M50,795 C300,758 800,758 1178,802 C800,832 300,834 50,795 Z" fill="url(#sh)"/>
+<!-- sağ üst kırmızı + gri bloklar -->
+<rect x="897" y="50" width="236" height="193" fill="#ff2400"/>
+<rect x="903" y="275" width="225" height="184" fill="#3e3e3e"/>
+<!-- sol kırmızı paralelkenar + gri -->
+<polygon points="195,230 360,230 306,485 195,485" fill="#ff2400"/>
+<polygon points="200,520 296,520 252,698 200,698" fill="#3e3e3e"/>
+<!-- duman çizgileri -->
+<g fill="none" stroke="#111" stroke-width="12" stroke-linecap="round">
+<path d="M418,100 Q480,82 530,78"/><path d="M405,130 Q470,112 530,108"/><path d="M388,178 Q450,140 530,138"/></g>
+<!-- eğik gövde + U -->
+<path fill="#111" fill-rule="evenodd" d="M415,225 L448,225 L448,500 L478,500 L478,225 L510,225 L510,562 L345,585 L322,622 L405,330 Z"/>
+<!-- C -->
+<path fill="#111" fill-rule="evenodd" d="M527,205 L643,205 L643,562 L527,562 Z M566,262 L643,262 L643,505 L566,505 Z"/>
+<!-- E -->
+<path fill="#111" fill-rule="evenodd" d="M667,205 L796,205 L796,562 L667,562 Z M712,265 L796,265 L796,332 L712,332 Z M712,398 L796,398 L796,495 L712,495 Z"/>
+<!-- ön direk + çatal -->
+<polygon points="846,225 884,150 886,572 846,572" fill="#111"/>
+<polygon points="808,500 1095,488 890,525 808,530" fill="#111"/>
+<!-- gövde altı -->
+<polygon points="490,578 700,578 700,640 520,656" fill="#111"/>
+<!-- tekerlekler -->
+<g fill="#111"><ellipse cx="418" cy="700" rx="92" ry="115"/><ellipse cx="784" cy="700" rx="92" ry="115"/></g>
+<g fill="#fff"><ellipse cx="418" cy="700" rx="36" ry="46"/><ellipse cx="780" cy="700" rx="34" ry="44"/></g>
+<!-- forklift yazısı -->
+<text x="915" y="612" font-family="Georgia, serif" font-weight="bold" font-size="60" fill="#111" textLength="230" lengthAdjust="spacingAndGlyphs">forklift</text>
+</svg>

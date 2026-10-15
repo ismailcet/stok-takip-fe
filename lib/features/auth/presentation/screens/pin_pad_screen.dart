@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../core/session/session.dart';
 import '../../../../core/theme/app_theme.dart';
+import '../../../home/presentation/screens/home_shell_screen.dart';
 import '../../bloc/login/login_bloc.dart';
 import '../../bloc/login/login_event.dart';
 import '../../bloc/login/login_state.dart';
@@ -39,10 +41,15 @@ class _PinPadView extends StatelessWidget {
           listenWhen: (previous, current) => previous.status != current.status,
           listener: (context, state) {
             if (state.status == LoginStatus.success) {
-              // TODO: Parçalar/ana ekran hazır olduğunda buraya yönlendir.
-              ScaffoldMessenger.of(
-                context,
-              ).showSnackBar(const SnackBar(content: Text('Giriş başarılı')));
+              Session.current = CurrentUser(
+                id: account.id,
+                fullName: account.fullName,
+                role: account.role,
+              );
+              Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(builder: (_) => const HomeShellScreen()),
+                (route) => false,
+              );
             }
           },
           child: Column(
@@ -74,8 +81,15 @@ class _PinPadView extends StatelessWidget {
                                   ),
                                 )
                                 : (state.status == LoginStatus.submitting
-                                    ? const CircularProgressIndicator(
-                                      strokeWidth: 2,
+                                    ? const Center(
+                                      child: SizedBox(
+                                        width: 22,
+                                        height: 22,
+                                        child: CircularProgressIndicator(
+                                          strokeWidth: 2.5,
+                                          color: AppColors.accent,
+                                        ),
+                                      ),
                                     )
                                     : null),
                       ),
@@ -83,7 +97,7 @@ class _PinPadView extends StatelessWidget {
                   );
                 },
               ),
-              const Spacer(),
+              const SizedBox(height: 40),
               PinKeypad(
                 onDigit:
                     (d) => context.read<LoginBloc>().add(LoginDigitAdded(d)),
@@ -92,7 +106,7 @@ class _PinPadView extends StatelessWidget {
                       const LoginDigitRemoved(),
                     ),
               ),
-              const SizedBox(height: 24),
+              const Spacer(),
             ],
           ),
         ),

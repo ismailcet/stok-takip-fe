@@ -26,34 +26,49 @@ class AppColors {
 class AppTheme {
   AppTheme._();
 
-  static const double buttonHeight = 80; // 74–86px aralığında
+  static const double buttonHeight = 64;
 
   static ThemeData light() {
-    final textTheme = TextTheme(
-      headlineLarge: GoogleFonts.caprasimo(fontSize: 34, color: AppColors.text),
-      headlineMedium: GoogleFonts.caprasimo(
-        fontSize: 28,
+    final base = GoogleFonts.figtreeTextTheme();
+
+    final textTheme = base.copyWith(
+      headlineLarge: GoogleFonts.figtree(
+        fontSize: 30,
+        fontWeight: FontWeight.w800,
         color: AppColors.text,
       ),
-      headlineSmall: GoogleFonts.caprasimo(fontSize: 22, color: AppColors.text),
-      titleLarge: GoogleFonts.caprasimo(fontSize: 20, color: AppColors.text),
-      titleMedium: GoogleFonts.figtree(
+      headlineMedium: GoogleFonts.figtree(
+        fontSize: 24,
+        fontWeight: FontWeight.w800,
+        color: AppColors.text,
+      ),
+      headlineSmall: GoogleFonts.figtree(
         fontSize: 20,
+        fontWeight: FontWeight.w800,
+        color: AppColors.text,
+      ),
+      titleLarge: GoogleFonts.figtree(
+        fontSize: 18,
+        fontWeight: FontWeight.w700,
+        color: AppColors.text,
+      ),
+      titleMedium: GoogleFonts.figtree(
+        fontSize: 18,
         fontWeight: FontWeight.w700,
         color: AppColors.text,
       ),
       bodyLarge: GoogleFonts.figtree(
-        fontSize: 22,
+        fontSize: 18,
         height: 1.4,
         color: AppColors.text,
       ),
       bodyMedium: GoogleFonts.figtree(
-        fontSize: 20,
+        fontSize: 16,
         height: 1.4,
         color: AppColors.text,
       ),
       labelLarge: GoogleFonts.figtree(
-        fontSize: 20,
+        fontSize: 16,
         fontWeight: FontWeight.w700,
         color: AppColors.text,
       ),
@@ -75,8 +90,9 @@ class AppTheme {
         foregroundColor: AppColors.background,
         elevation: 0,
         centerTitle: true,
-        titleTextStyle: GoogleFonts.caprasimo(
-          fontSize: 20,
+        titleTextStyle: GoogleFonts.figtree(
+          fontSize: 18,
+          fontWeight: FontWeight.w800,
           color: AppColors.background,
         ),
       ),
@@ -85,7 +101,10 @@ class AppTheme {
           backgroundColor: AppColors.accent,
           foregroundColor: AppColors.background,
           minimumSize: const Size.fromHeight(buttonHeight),
-          textStyle: GoogleFonts.caprasimo(fontSize: 20),
+          textStyle: GoogleFonts.figtree(
+            fontSize: 17,
+            fontWeight: FontWeight.w700,
+          ),
           shape: const StadiumBorder(),
           elevation: 0,
         ),
@@ -95,7 +114,10 @@ class AppTheme {
           foregroundColor: AppColors.text,
           minimumSize: const Size.fromHeight(buttonHeight),
           side: BorderSide(color: AppColors.text.withOpacity(0.15), width: 2),
-          textStyle: GoogleFonts.caprasimo(fontSize: 20),
+          textStyle: GoogleFonts.figtree(
+            fontSize: 17,
+            fontWeight: FontWeight.w700,
+          ),
           shape: const StadiumBorder(),
         ),
       ),
@@ -103,11 +125,11 @@ class AppTheme {
         filled: true,
         fillColor: AppColors.surface,
         contentPadding: const EdgeInsets.symmetric(
-          horizontal: 22,
-          vertical: 22,
+          horizontal: 20,
+          vertical: 16,
         ),
         hintStyle: GoogleFonts.figtree(
-          fontSize: 20,
+          fontSize: 16,
           color: AppColors.text.withOpacity(0.4),
         ),
         border: OutlineInputBorder(
@@ -119,7 +141,7 @@ class AppTheme {
         color: AppColors.background,
         elevation: 0,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(28),
+          borderRadius: BorderRadius.circular(24),
           side: BorderSide(color: AppColors.text.withOpacity(0.1), width: 2),
         ),
       ),

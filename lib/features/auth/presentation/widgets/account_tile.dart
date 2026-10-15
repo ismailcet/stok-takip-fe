@@ -8,9 +8,19 @@ class AccountTile extends StatelessWidget {
 
   const AccountTile({super.key, required this.account, required this.onTap});
 
+  Color get _avatarColor {
+    switch (account.role) {
+      case UserRole.admin:
+        return AppColors.accentDark;
+      case UserRole.usta:
+        return AppColors.accent;
+      case UserRole.cirak:
+        return AppColors.accentGreen;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    final isUsta = account.role == UserRole.usta;
     return Card(
       child: InkWell(
         borderRadius: BorderRadius.circular(28),
@@ -21,8 +31,7 @@ class AccountTile extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: 28,
-                backgroundColor:
-                    isUsta ? AppColors.accent : AppColors.accentGreen,
+                backgroundColor: _avatarColor,
                 child: Text(
                   account.fullName.isNotEmpty
                       ? account.fullName[0].toUpperCase()
