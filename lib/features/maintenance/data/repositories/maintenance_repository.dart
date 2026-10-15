@@ -18,8 +18,13 @@ class MaintenanceRepository {
         .toList();
   }
 
-  Future<List<Company>> listCompanies() async {
-    final data = await _apiClient.get('/companies');
+  /// [activeOnly] true ise gizli firmalar gelmez (yeni bakım kaydı ekranı için).
+  /// Bakım listesindeki filtre tüm firmaları ister, çünkü gizli firmaların da kayıtları vardır.
+  Future<List<Company>> listCompanies({bool activeOnly = false}) async {
+    final data = await _apiClient.get(
+      '/companies',
+      query: {if (activeOnly) 'activeOnly': 'true'},
+    );
     return (data as List)
         .map((e) => Company.fromJson(e as Map<String, dynamic>))
         .toList();

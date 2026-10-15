@@ -15,11 +15,21 @@ class MaintenanceDetailScreen extends StatelessWidget {
   String get _photoUrl =>
       '${ApiConfig.baseUrl}/maintenance-records/${record.id}/photo';
 
+  static String? _clean(String? v) {
+    final t = v?.trim();
+    return (t == null || t.isEmpty) ? null : t;
+  }
+
   @override
   Widget build(BuildContext context) {
     final currentUser = Session.current;
     final textTheme = Theme.of(context).textTheme;
     final createdAt = record.createdAt;
+
+    final address = _clean(record.companyAddress);
+    final taxOffice = _clean(record.companyTaxOffice);
+    final taxNumber = _clean(record.companyTaxNumber);
+    final phone = _clean(record.companyPhone);
 
     return Scaffold(
       appBar: AppBar(
@@ -64,6 +74,22 @@ class MaintenanceDetailScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _InfoRow(label: 'Firma', value: record.companyName),
+              if (address != null) ...[
+                const SizedBox(height: 10),
+                _InfoRow(label: 'Adres', value: address),
+              ],
+              if (taxOffice != null) ...[
+                const SizedBox(height: 10),
+                _InfoRow(label: 'Vergi Dairesi', value: taxOffice),
+              ],
+              if (taxNumber != null) ...[
+                const SizedBox(height: 10),
+                _InfoRow(label: 'Vergi No', value: taxNumber),
+              ],
+              if (phone != null) ...[
+                const SizedBox(height: 10),
+                _InfoRow(label: 'Telefon', value: phone),
+              ],
               const SizedBox(height: 10),
               _InfoRow(
                 label: 'Tarih',

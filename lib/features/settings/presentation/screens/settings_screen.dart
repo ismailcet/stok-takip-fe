@@ -6,6 +6,7 @@ import '../../../../core/widgets/role_badge.dart';
 import '../../../auth/data/repositories/auth_repository.dart';
 import '../../../auth/presentation/screens/account_picker_screen.dart';
 import 'change_pin_screen.dart';
+import 'manage_companies_screen.dart';
 import 'manage_list_screen.dart';
 import 'manage_users_screen.dart';
 
@@ -139,17 +140,7 @@ class SettingsScreen extends StatelessWidget {
                 _SettingsTile(
                   icon: Icons.business_outlined,
                   title: 'Firmalar',
-                  onTap:
-                      () => _open(
-                        context,
-                        const ManageListScreen(
-                          title: 'Firmalar',
-                          singular: 'Firma',
-                          path: '/companies',
-                          deleteBlockedMessage:
-                              'Bu firmaya ait bakım kaydı var, silinemez',
-                        ),
-                      ),
+                  onTap: () => _open(context, const ManageCompaniesScreen()),
                 ),
                 const SizedBox(height: 10),
                 _SettingsTile(

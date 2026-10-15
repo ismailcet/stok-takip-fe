@@ -34,7 +34,8 @@ class CreateMaintenanceBloc
   ) async {
     emit(state.copyWith(loadingCompanies: true));
     try {
-      final companies = await _repository.listCompanies();
+      // Gizli firmalar yeni bakım kaydında seçilemez.
+      final companies = await _repository.listCompanies(activeOnly: true);
       emit(state.copyWith(companies: companies, loadingCompanies: false));
     } catch (_) {
       emit(
